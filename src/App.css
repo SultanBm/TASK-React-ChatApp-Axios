@@ -384,3 +384,16 @@ a {
   background-color: #3b5bfe;
   color: #fff;
 }
+
+.bookedbook{
+  color: rgb(0, 0, 0);
+}
+.gold{
+  color: gold;
+}
+.platinum{
+  color: #808080;
+}
+.silver{
+  color: #C0C0C0;
+}

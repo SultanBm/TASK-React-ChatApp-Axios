@@ -1,9 +1,8 @@
 import { Button } from "react-bootstrap";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import roomStore from "../stores/roomStore";
+import roomStore from "../stores/booksStore";
 import UpdateRoomModal from "./UpdateRoomModal";
-import Memberbooks from "./Memberbooks";
 
 export default function ChatRoomitem(props) {
   const room = props.room;
@@ -24,20 +23,13 @@ export default function ChatRoomitem(props) {
         <div style={{ animationDelay: "0.1" }} className="chatlist__item">
           <div className="avatar">
             <div className="avatar-img">
-              <img
-                src="https://static.thenounproject.com/png/363639-200.png"
-                alt="#"
-              />
+              <img src={room.image} alt="#" />
             </div>
           </div>
           <div className="userMeta">
-            <p>
-              {room.firstName} - {room.lastName}
-            </p>
-            <span className="activeTime" style={{ color: room.membership }}>
-              {room.membership}
-            </span>
-            <Memberbooks mybooks={room.currentlyBorrowedBooks} />
+            <p>{room.author}</p>
+            <span className="activeTime">{room.title}</span>
+            <span className="activeTime">{room.genres}</span>
           </div>
         </div>
       </Link>

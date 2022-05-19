@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import MessageItem from './MessageItem';
-import roomStore from '../stores/roomStore';
-import { observer } from 'mobx-react';
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
+import MessageItem from "./MessageItem";
+import roomStore from "../stores/roomStore";
+import { observer } from "mobx-react";
 
 function ChatRoom() {
   const roomSlug = useParams().roomSlug;
@@ -10,7 +10,7 @@ function ChatRoom() {
   const messagesList = room.messages.map((msg) => {
     return <MessageItem msg={msg.msg} />;
   });
-  const [msg, setMsg] = useState({ msg: '' });
+  const [msg, setMsg] = useState({ msg: "" });
   const handleChange = (event) => {
     setMsg({ ...msg, [event.target.name]: event.target.value });
   };

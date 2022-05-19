@@ -5,12 +5,15 @@ import axios from "axios";
 class RoomStore {
   rooms = [
     {
-      _id: "628514d5b8273a86534c95b8",
-      firstName: "Aziz",
-      lastName: "AlSaffar",
-      membership: "gold",
-      currentlyBorrowedBooks: [],
-      slug: "aziz-alsaffar",
+      _id: "62853a01d8ec5d3d4a29fa5b",
+      author: "Leigh Bardugo",
+      title: "The Language of Thorns: Midnight Tales and Dangerous Magic",
+      genres: ["Fantasy"],
+      available: true,
+      borrowedBy: ["6285150fb8273a86534c95bb"],
+      slug: "the-language-of-thorns-midnight-tales-and-dangerous-magic-1",
+      image:
+        "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1491842507l/34076952.jpg",
     },
   ];
 
@@ -27,7 +30,7 @@ class RoomStore {
   fetchRooms = async () => {
     try {
       const rooms = await axios.get(
-        "http://library-borrow-system.herokuapp.com/api/members"
+        "https://library-borrow-system.herokuapp.com/api/books"
       );
       this.rooms = rooms.data;
     } catch (error) {
@@ -39,10 +42,11 @@ class RoomStore {
     room.id = this.rooms[this.rooms.length - 1].id + 1;
     room.slug = slugify(room.title);
     this.rooms.push(room);
+
     console.log(room);
     try {
       await axios.post(
-        "https://library-borrow-system.herokuapp.com/api/members",
+        "https://library-borrow-system.herokuapp.com/api/books",
         room
       );
     } catch (e) {

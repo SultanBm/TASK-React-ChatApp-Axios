@@ -1,6 +1,6 @@
-import { Modal, Button, InputGroup, Form } from 'react-bootstrap';
-import React, { useState } from 'react';
-import roomStore from '../stores/roomStore';
+import { Modal, Button, InputGroup, Form } from "react-bootstrap";
+import React, { useState } from "react";
+import roomStore from "../stores/roomStore";
 
 export default function UpdateRoomModal(props) {
   const [room, setRoom] = useState({

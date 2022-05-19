@@ -4,14 +4,17 @@ import "./App.css";
 import ChatRoom from "./components/ChatRoom";
 import ChatRoomsList from "./components/ChatRoomsList";
 import { Route, Switch } from "react-router";
-import fetchRooms from "./stores/roomStore";
+import BookList from "./components/BookList";
 function App() {
   return (
     <div className="__main">
       <div className="main__chatbody">
         <Switch>
-          <Route path="/room/:roomSlug">
-            <ChatRoom fetchRooms={fetchRooms} />
+          <Route path="/room/">
+            <ChatRoom />
+          </Route>
+          <Route path="/BookList">
+            <BookList />
           </Route>
           <Route exact path="/">
             <center>
